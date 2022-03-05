@@ -10,6 +10,18 @@
             "env": {
                 "NUMBER": "10"
             }
+        },
+        {
+            "name": "calculator",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/calculator/main.go",
+            "env": {
+                "FIRST_NUMBER": "10",
+                "SECOND_NUMBER": "5",
+                "ACTION": "2"
+            }
         }
     ]
 }

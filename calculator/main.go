@@ -1,16 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 func main() {
 	var operator string
 	var number1, number2 int
-	fmt.Print("Please enter First number: ")
-	fmt.Scanln(&number1)
-	fmt.Print("Please enter Second number: ")
-	fmt.Scanln(&number2)
-	fmt.Print("Please enter Operator (+,-,/,%,*):")
-	fmt.Scanln(&operator)
+
+	n1 := os.Getenv("FIRST_NUMBER")
+	number1, _ = strconv.Atoi(n1)
+
+	fmt.Printf("\nFirst number: %d", number1)
+
+	n2 := os.Getenv("SECOND_NUMBER")
+	number2, _ = strconv.Atoi(n2)
+
+	fmt.Printf("\nSecond number: %d", number2)
+
+	operator = os.Getenv("ACTION")
+	fmt.Printf("\nSelected Operator (+,-,/,%,*): %s\n", operator)
 	output := 0
 	switch operator {
 	case "+":
@@ -18,12 +29,16 @@ func main() {
 		break
 	case "-":
 		output = number1 - number2
+		break
 	case "*":
 		output = number1 * number2
+		break
 	case "/":
 		output = number1 / number2
+		break
 	case "%":
 		output = number1 % number2
+		break
 	default:
 		fmt.Println("Invalid Operation")
 	}
